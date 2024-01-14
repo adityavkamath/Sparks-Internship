@@ -1,0 +1,38 @@
+<!-- views/transfer.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Transfer Money</title>
+</head>
+
+<body>
+  <h1>Transfer Money</h1>
+  <form action="/transfer" method="POST">
+    <label for="sender">Sender:</label>
+    <select name="sender" id="sender" required>
+      <% customers.forEach(customer => { %>
+        <option value="<%= customer.name %>"><%= customer.name %></option>
+      <% }); %>
+    </select>
+
+    <label for="receiver">Receiver:</label>
+    <select name="receiver" id="receiver" required>
+      <% customers.forEach(customer => { %>
+        <option value="<%= customer.name %>"><%= customer.name %></option>
+      <% }); %>
+    </select>
+
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" id="amount" min="1" required>
+
+    <button type="submit">Transfer</button>
+  </form>
+  <a href="/customers">Go back to Customers</a>
+</body>
+
+</html>

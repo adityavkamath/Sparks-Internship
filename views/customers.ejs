@@ -1,0 +1,36 @@
+<!-- views/customers.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Customers</title>
+</head>
+
+<body>
+  <h1>Customers</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Current Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% customers.forEach(customer => { %>
+        <tr>
+          <td><a href="/customers/<%= customer._id %>"><%= customer.name %></a></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.currentBalance %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <a href="/">Go back to Home</a>
+</body>
+
+</html>

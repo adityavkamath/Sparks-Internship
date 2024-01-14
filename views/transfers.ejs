@@ -1,0 +1,37 @@
+<!-- views/transfers.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Transfer History</title>
+</head>
+<body>
+  <h1>Transfer History</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Amount</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% transfers.forEach(transfer => { %>
+        <tr>
+          <td><%= transfer.sender %></td>
+          <td><%= transfer.receiver %></td>
+          <td><%= transfer.amount %></td>
+          <td><%= transfer.timestamp %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <a href="/customers">Go back to Customers</a>
+</body>
+
+</html>
